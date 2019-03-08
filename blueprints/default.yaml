@@ -1,0 +1,13 @@
+title: default
+'@extends':
+  type: default
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            content:
+              type: ckeditor
+              style: vertical
