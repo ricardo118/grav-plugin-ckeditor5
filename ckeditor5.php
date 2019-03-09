@@ -49,6 +49,12 @@ class CKEditor5Plugin extends Plugin
 
         if ($this->isAdmin()) {
             $assets->addJs('plugins://ckeditor5/vendor/build/ckeditor.js', 10);
+
+            if (isset($this->configs['language']))
+            {
+                $assets->addJs('plugins://ckeditor5/vendor/build/translations/' . $this->configs['language'] . '.js', 10);
+            }
+
             $assets->addCss('plugins://ckeditor5/admin/custom.css', 10);
         }
     }

@@ -1,5 +1,5 @@
 {% extends "forms/field.html.twig" %}
-{#{% set configs =  %}#}
+{% set configs =  config.plugins.ckeditor5 %}
 
 {% block label %}
     {% if field.label %}
@@ -9,6 +9,7 @@
 {% endblock %}
 
 {% block field %}
+    {{ dump(configs) }}
 <div class="form-field {{ field.classes|default('') }}">
     <div class="form-data grav-editor">
         <div class="ckeditor-form {{ form_field_wrapper_classes ?: 'form-textarea-wrapper' }} {{ field.size }} {{ field.wrapper_classes }}">
@@ -42,7 +43,30 @@
     ClassicEditor
         .create( document.querySelector( '.ckeditor-form textarea' ),
             {
-                toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'undo', 'redo' ],
+                toolbar: {
+                    items: [
+                        'heading',
+                        '|',
+                        'bold',
+                        'italic',
+                        'link',
+                        'bulletedList',
+                        'numberedList',
+                        'blockQuote',
+                        'insertTable',
+                        'undo',
+                        'redo'
+                    ]
+                },
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells'
+                    ]
+                },
+                // This value must be kept in sync with the language defined in webpack.config.js.
+                language: '{{ configs.language|defined('en') }}'
             })
         .then( editor => {
             console.log( 'Editor was initialized', editor );

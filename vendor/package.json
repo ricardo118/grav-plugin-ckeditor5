@@ -33,7 +33,7 @@
     "@ckeditor/ckeditor5-ckfinder": "^11.0.0",
     "@ckeditor/ckeditor5-core": "^12.0.0",
     "@ckeditor/ckeditor5-dev-utils": "^12.0.0",
-    "@ckeditor/ckeditor5-dev-webpack-plugin": "^8.0.0",
+    "@ckeditor/ckeditor5-dev-webpack-plugin": "^8.0.1",
     "@ckeditor/ckeditor5-easy-image": "^11.0.0",
     "@ckeditor/ckeditor5-editor-classic": "^12.0.0",
     "@ckeditor/ckeditor5-essentials": "^11.0.0",
