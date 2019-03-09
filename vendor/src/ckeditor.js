@@ -98,5 +98,6 @@ ClassicEditor.defaultConfig = {
 
 function Markdown( editor ) {
 	editor.data.processor = new GFMDataProcessor();
+	editor.ui.view.stickyPanel.viewportTopOffset = 67.2;
 }
 
