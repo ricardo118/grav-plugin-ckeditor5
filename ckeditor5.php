@@ -16,7 +16,8 @@ class CKEditor5Plugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0]
+            'onPluginsInitialized' => ['onPluginsInitialized', 0],
+            'onAssetsInitialized' => ['onAssetsInitialized', 0]
         ];
     }
 
@@ -32,8 +33,7 @@ class CKEditor5Plugin extends Plugin
 
             // Enable the main event we are interested in
             $this->enable([
-                'onAdminTwigTemplatePaths' => ['onAdminTwigTemplatePaths', 0],
-                'onAssetsInitialized' => ['onAssetsInitialized', 0]
+                'onAdminTwigTemplatePaths' => ['onAdminTwigTemplatePaths', 0]
             ]);
         }
     }
@@ -57,6 +57,8 @@ class CKEditor5Plugin extends Plugin
 
             $assets->addCss('plugins://ckeditor5/admin/custom.css', 10);
         }
+        $assets->addJs('plugins://ckeditor5/vendor/build/ckeditor.js', 10);
+        $assets->addCss('plugins://ckeditor5/admin/custom.css', 10);
     }
 
     // Custom admin template overriding
