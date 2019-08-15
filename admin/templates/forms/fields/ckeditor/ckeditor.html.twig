@@ -1,5 +1,4 @@
 {% extends "forms/field.html.twig" %}
-{#{% set configs =  %}#}
 
 {% block label %}
     {% if field.label %}
@@ -42,10 +41,30 @@
         ClassicEditor
             .create( document.querySelector( '.ckeditor-form textarea' ),
                 {
-                    toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'undo', 'redo' ],
+                    link: {
+                        decorators: {
+                            addTargetToLinks: {
+                                mode: 'manual',
+                                label: 'Open in a new tab',
+                                attributes: {
+                                    target: '_blank',
+                                    rel: 'noopener noreferrer'
+                                }
+                            },
+                            addLinkOut: {
+                                mode: 'manual',
+                                label: 'Link Out',
+                                attributes: {
+                                    'data-linkout': ''
+                                }
+                            }
+                        }
+                    },
+                    // This value must be kept in sync with the language defined in webpack.config.js.
+                    language: '{{ configs.language|defined('en') }}'
                 })
             .then( editor => {
-                console.log( 'Editor was initialized', editor );
+                {{ readonly ? 'editor.isReadOnly = true;' }}
                 editor.model.document.on( 'change', () => {
                     if ( editor.model.document.differ.getChanges().length > 0 ) {
                         editor.updateSourceElement();
