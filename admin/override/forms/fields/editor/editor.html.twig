@@ -1,15 +1,12 @@
 {% extends "forms/field.html.twig" %}
 {% set configs =  config.plugins.ckeditor5 %}
 
-{% block label %}
-    {% if field.label %}
-        {% set hint = field.help ? 'data-hint="' ~ field.help|tu|raw ~ '"': '' %}
-        <div class="form-label form-field hint--bottom" {{ hint }}>{{ field.label|tu|raw }}</div>
-    {% endif %}
-{% endblock %}
-
 {% block field %}
 <div class="form-field {{ field.classes|default('') }}">
+    {% if field.label %}
+        {% set hint = field.help ? 'data-hint="' ~ field.help|tu|raw ~ '"': '' %}
+        <div class="form-label hint--bottom" {{ hint }}>{{ field.label|tu|raw }}</div>
+    {% endif %}
     <div class="form-data grav-editor">
         <div class="ckeditor-form {{ form_field_wrapper_classes ?: 'form-textarea-wrapper' }} {{ field.size }} {{ field.wrapper_classes }}">
             <textarea
@@ -40,7 +37,7 @@
 </div>
 <script>
     ClassicEditor
-        .create( document.querySelector( '.ckeditor-form textarea' ),
+        .create( document.querySelector( 'textarea[name="{{ (scope ~ field.name)|fieldName }}"]' ),
             {
                 link: {
                     decorators: {
