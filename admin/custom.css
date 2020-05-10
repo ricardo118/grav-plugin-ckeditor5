@@ -5,18 +5,18 @@
 }
 .ck-editor p {
     padding: 0;
-    margin: 0;
+    margin: 0 0 1rem;
     letter-spacing: normal;
 }
 
-.ck-editor h2 {
+.ck-editor h2, #admin-main .ck-editor h3 {
     padding: 0;
     margin: 0 0 1rem;
     font-size: 20px;
     letter-spacing: normal;
 }
 
-.ck-editor h3 {
+.ck-editor h3, #admin-main .ck-editor h3 {
     padding: 0;
     margin: 50px 0 20px;
     font-size: 18px;
@@ -24,7 +24,7 @@
     letter-spacing: normal;
 }
 
-.ck-editor h4 {
+.ck-editor h4, #admin-main .ck-editor h3 {
     padding: 0;
     margin-top: 20px;
     margin-bottom: 12px;

@@ -1,12 +1,14 @@
 {% extends "forms/field.html.twig" %}
+{% set configs =  config.plugins.ckeditor5 %}
+{% set vertical_styling = field.vertical|defined(true) %}
 
 {% block field %}
-    <div class="form-field {{ field.classes|default('') }}">
+    <div class="form-field {{ field.classes|default('') }} {{ vertical_styling ?: 'grid' }}">
         {% if field.label %}
             {% set hint = field.help ? 'data-hint="' ~ field.help|tu|raw ~ '"': '' %}
-            <div class="form-label hint--bottom" {{ hint }}>{{ field.label|tu|raw }}</div>
+            <div class="form-label hint--bottom {{ vertical_styling ?: 'block size-1-3' }}" {{ hint }}>{{ field.label|tu|raw }}</div>
         {% endif %}
-        <div class="form-data grav-editor">
+        <div class="form-data grav-editor {{ vertical_styling ?: 'block size-2-3' }}">
             <div class="ckeditor-form {{ form_field_wrapper_classes ?: 'form-textarea-wrapper' }} {{ field.size }} {{ field.wrapper_classes }}">
             <textarea
                 {# required attribute structures #}
@@ -38,25 +40,6 @@
         ClassicEditor
             .create( document.querySelector( 'textarea[name="{{ (scope ~ field.name)|fieldName }}"]' ),
                 {
-                    link: {
-                        decorators: {
-                            addTargetToLinks: {
-                                mode: 'manual',
-                                label: 'Open in a new tab',
-                                attributes: {
-                                    target: '_blank',
-                                    rel: 'noopener noreferrer'
-                                }
-                            },
-                            addLinkOut: {
-                                mode: 'manual',
-                                label: 'Link Out',
-                                attributes: {
-                                    'data-linkout': ''
-                                }
-                            }
-                        }
-                    },
                     language: '{{ configs.language|defined('en') }}'
                 })
             .then( editor => {
