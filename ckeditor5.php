@@ -47,18 +47,15 @@ class CKEditor5Plugin extends Plugin
     {
         $assets=$this->grav['assets'];
 
-        if ($this->isAdmin()) {
+        if ($this->isAdmin())
+        {
+            $assets->addCss('plugins://ckeditor5/admin/custom.css', 10);
             $assets->addJs('plugins://ckeditor5/vendor/build/ckeditor.js', 10);
 
-            if (isset($this->configs['language']))
-            {
+            if (isset($this->configs['language'])) {
                 $assets->addJs('plugins://ckeditor5/vendor/build/translations/' . $this->configs['language'] . '.js', 10);
             }
-
-            $assets->addCss('plugins://ckeditor5/admin/custom.css', 10);
         }
-        $assets->addJs('plugins://ckeditor5/vendor/build/ckeditor.js', 10);
-        $assets->addCss('plugins://ckeditor5/admin/custom.css', 10);
     }
 
     // Custom admin template overriding
