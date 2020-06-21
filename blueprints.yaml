@@ -1,5 +1,5 @@
 name: CKEditor5
-version: 0.1.0
+version: 1.0.0
 description: A plugin for CKEditor5 integration to Grav
 icon: plug
 author:
@@ -25,3 +25,73 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+
+    override:
+      type: toggle
+      label: Override Default Editor
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    language:
+      type: select
+      label: Language
+      default: en
+      options:
+        en: 'English (English)'
+        ar: 'Arabic (العربية)'
+        ast: 'Asturian (Asturianu)'
+        az: 'Azerbaijani (azərbaycan dili)'
+        bg: 'Bulgarian (български език)'
+        ca: 'Catalan (català)'
+        cs: 'Czech (čeština, český jazyk)'
+        da: 'Danish (Dansk)'
+        de: 'German (Deutsch)'
+        de-ch: 'German (Swiss)'
+        el: 'Greek (ελληνικά)'
+        es: 'Spanish (Español)'
+        et: 'Estonian (eesti)'
+        eu: 'Basque (euskara)'
+        fa: 'Persian (فارسی)'
+        fi: 'Finnish (suomi)'
+        fr: 'French (français)'
+        gl: 'Galician (Galego)'
+        gu: 'Gujarati (ગુજરાતી)'
+        he: 'Hebrew (עברית)'
+        hr: 'Croatian (hrvatski jezik)'
+        hu: 'Hungarian (magyar)'
+        id: 'Indonesian (Bahasa Indonesia)'
+        it: 'Italian (Italiano)'
+        ja: 'Japanese (日本語 (にほんご))'
+        km: 'Central Khmer (ខ្មែរ, ខេមរភាសា, ភាសាខ្មែរ)'
+        kn: 'Kannada (ಕನ್ನಡ)'
+        ko: 'Korean (한국어)'
+        ku: 'Kurdish (Kurdî, کوردی‎)'
+        lv: 'Latvian (latviešu valoda)'
+        nb: 'Norwegian Bokmål (Norsk Bokmål)'
+        ne: 'Nepali (नेपाली)'
+        nl: 'Dutch (Nederlands)'
+        no: 'Norwegian (Norsk)'
+        oc: "Occitan (occitan, lenga d'òc)"
+        pl: 'Polish (język polski)'
+        pt: 'Portuguese (Português)'
+        pt-br: 'Portuguese Brazil (Português Brasil)'
+        ro: 'Romanian, Moldavian, Moldovan (Română)'
+        ru: 'Russian (русский)'
+        si: 'Sinhala, Sinhalese (සිංහල)'
+        sk: 'Slovak (Slovenčina)'
+        sq: 'Albanian (Shqip)'
+        sr: 'Serbian (српски језик)'
+        sr-latn: 'Serbian Latin (српски језик)'
+        sv: 'Swedish (Svenska)'
+        tr: 'Turkish (Türkçe)'
+        tt: 'Tatar (татар теле)'
+        ug: 'Uighur (ئۇيغۇرچە‎)'
+        uk: 'Ukrainian (Українська)'
+        vi: 'Vietnamese (Tiếng Việt)'
+        zh: 'Chinese (中文 (Zhōngwén), 汉语, 漢語)'
+        zh-cn: 'Chinese Simplified (简化字; jiǎnhuàzì)'

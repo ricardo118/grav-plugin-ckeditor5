@@ -23,7 +23,7 @@ To install this plugin, just download the zip version of this repository and unz
 You should now have all the plugin files under
 
     /your/site/grav/user/plugins/ck-editor5
-	
+
 > NOTE: This plugin is a modular component for Grav which requires [Grav](http://github.com/getgrav/grav) and the [Error](https://github.com/getgrav/grav-plugin-error) and [Problems](https://github.com/getgrav/grav-plugin-problems) to operate.
 
 ### Admin Plugin
@@ -54,3 +54,6 @@ Note that if you use the admin plugin, a file with your configuration, and named
 
 - [ ] Future plans, if any
 
+# Notes
+
+`vendor` folder contains a  copy of `ckeditor5-build-classic.git` and is used for modifying and recompiling the original ckeditor
